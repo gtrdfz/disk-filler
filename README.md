@@ -1,6 +1,6 @@
 # DiskFiller 🔒  
 
-A simple script to fill up storage space (HDD, SSD, external drive, USB stick, etc.) with files full of **zeros**.
+A simple script to fill up storage space (HDD, SSD, external drive, USB stick, etc.) with random files.
 
 I created this tool to help remove sensitive data from disks after a quick format.
 

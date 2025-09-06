@@ -5,22 +5,25 @@ import uuid
 from datetime import datetime
 
 
-storageLetters = ["D", "F"] # UPDATE HERE
+storageLetters = ["D"] # UPDATE HERE
 
-
+def generate_random_bytes(size_mb):
+    size_bytes = size_mb * 1024 * 1024
+    return os.urandom(size_bytes)
+    
+    
 def create_folder(folderDest):
     if not os.path.exists(folderDest):
         os.makedirs(folderDest)
 
 
 def create_zero_bytes_files(folderdestination, filesize):
-    toWrite = b'\x00' * 1024 * 1024 * filesize
     counter = 0
     try:
         while True:
             filename = os.path.join(folderdestination, f"{uuid.uuid4()}.bin")
             with open(filename, "wb") as f:
-                f.write(toWrite)
+                f.write(generate_random_bytes(filesize))
             counter += 1
             if counter % 10:
                 date = datetime.now().strftime('%H:%M:%S')
